@@ -13,7 +13,6 @@ require 'xml/libxml'
 module XSD
 module XMLParser
 
-
 class LibXMLParser < XSD::XMLParser::Parser
   include LibXML::XML::SaxParser::Callbacks
 
@@ -25,7 +24,7 @@ class LibXMLParser < XSD::XMLParser::Parser
     end
     # XMLParser passes a String in utf-8.
     @charset = 'utf-8'
-    @parser = XML::SaxParser.string(string)
+    @parser = LibXML::XML::SaxParser.string(string)
     @parser.callbacks = self
     @parser.parse
   end
